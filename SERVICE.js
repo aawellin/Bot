@@ -220,7 +220,7 @@ function makeGenericQuestionRequest(site, tagList, returnFormat, bot, message) {
 					    	break;
 	
 					    	case 'BQAA':
-					    		var answerstring;
+					    		var answerstring = "";
 					    		for (var i = 0; i < bestquestion.answer_count; i++) 
 					    		{
 					    			answerstring = answerstring + '\n NEXT ANSWER: \n' +bestquestion.answers[i].body;
@@ -231,16 +231,16 @@ function makeGenericQuestionRequest(site, tagList, returnFormat, bot, message) {
 	
 					    	case 'BQAAC':
 	
-					    		var answerstring;
+					    		var answerstring = "";
 				    			for (var i = 0; i < bestquestion.answer_count; i++) 
 				    			{
 					    			answerstring = answerstring + '\n NEXT ANSWER: \n' + bestquestion.answers[i].body;
 								if (bestquestion.answers[i].comment_count > 0)
 								{
 									answerstring = answerstring + 'Comments:\n';
-				    					for (var j = 0; j < bestanswer.answers[i].comment_count; j++) 
+				    					for (var j = 0; j < bestquestion.answers[i].comment_count; j++) 
 				    					{
-				    						answerstring = answerstring + '\t' + bestanswer.answers[i].comments[j].body + '\n';
+				    						answerstring = answerstring + '\t' + bestquestion.answers[i].comments[j].body + '\n';
 				    					}
 								}
 							}
